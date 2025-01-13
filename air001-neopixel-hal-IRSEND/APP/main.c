@@ -70,9 +70,9 @@ HAL_StatusTypeDef status;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	u16	user_code_16bit = 0x1234;	// 初始化16位用户码
+	uint16_t	user_code_16bit = 0x1234;	// 初始化16位用户码
 	
-	u8 data_code_8bit = 0x66 ;		// 初始化8位数据码
+	uint8_t data_code_8bit = 0x66 ;		// 初始化8位数据码
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -99,6 +99,8 @@ int main(void)
   {
     //TODO 0 修改GPIO PA6 done，修改频率（目前是24M PLL2，即48M时钟频率）
     //TODO 1 测试systick计时delay_us的准确性
+		delay_us(1000*1000);//1s
+		NEC_IE_code_message(user_code_16bit, data_code_8bit);
     //TODO 2 测试按键发送信号
     //TODO 3 整合代码
 
