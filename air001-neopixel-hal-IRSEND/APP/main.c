@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "gpio.h"
 #include "infrared.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -69,7 +70,9 @@ HAL_StatusTypeDef status;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	u16	user_code_16bit = 0x1234;	// 初始化16位用户码
+	
+	u8 data_code_8bit = 0x66 ;		// 初始化8位数据码
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -85,7 +88,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  MX_GPIO_Init();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -94,6 +97,10 @@ int main(void)
 
   while(1)
   {
+    //TODO 0 修改GPIO PA6 done，修改频率（目前是24M PLL2，即48M时钟频率）
+    //TODO 1 测试systick计时delay_us的准确性
+    //TODO 2 测试按键发送信号
+    //TODO 3 整合代码
 
 	}
 	

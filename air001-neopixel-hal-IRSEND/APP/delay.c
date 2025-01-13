@@ -21,7 +21,7 @@
 // 延时delay_us_Num微秒	
 // 参数delay_us_Num的值应 < 1,864,135(十进制)
 //*********************************************
-#define CPU_FREQUENCY_MHZ    64		// STM32时钟主频
+#define CPU_FREQUENCY_MHZ    48		// STM32时钟主频
 void delay_us(__IO uint32_t delay)
 {
     int last, curr, val;
