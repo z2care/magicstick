@@ -1,6 +1,8 @@
 #include "air001xx_it.h"
 #include "air001xx_hal.h"
 
+extern DMA_HandleTypeDef hdma_spi1_tx;
+
 void NMI_Handler(void)
 {
 }
@@ -34,8 +36,8 @@ void SysTick_Handler(void)
 /**
   * @brief This function handles DMA1 channel1 Interrupt .
   */
-//void DMA1_Channel1_IRQHandler(void)
-//{
-//  HAL_DMA_IRQHandler(&hdma_spi1_tx);
+void DMA1_Channel1_IRQHandler(void)
+{
+  HAL_DMA_IRQHandler(&hdma_spi1_tx);
 
-//}
+}

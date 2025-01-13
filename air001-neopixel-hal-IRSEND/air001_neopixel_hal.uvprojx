@@ -189,7 +189,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,AIR001_DEV</Define>
               <Undefine></Undefine>
-              <IncludePath>.\AIR001xx_HAL_Driver\Inc;.\APP;.\NeoPixel;.\LIS3DH</IncludePath>
+              <IncludePath>.\AIR001xx_HAL_Driver\Inc;.\APP;.\NeoPixel</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -394,11 +394,6 @@
               <FilePath>.\APP\main.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_msp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\APP\stm32f1xx_hal_msp.c</FilePath>
-            </File>
-            <File>
               <FileName>infrared.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\infrared.c</FilePath>
@@ -412,6 +407,26 @@
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>effects.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\effects.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>ws2812.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\ws2812.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -467,6 +482,31 @@
               <FileName>air001xx_hal_rcc_ex.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\AIR001xx_HAL_Driver\Src\air001xx_hal_rcc_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>air001xx_hal_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AIR001xx_HAL_Driver\Src\air001xx_hal_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>air001xx_hal_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AIR001xx_HAL_Driver\Src\air001xx_hal_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>air001xx_hal_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AIR001xx_HAL_Driver\Src\air001xx_hal_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>NeoPixel</GroupName>
+          <Files>
+            <File>
+              <FileName>Adafruit_NeoPixel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\NeoPixel\Adafruit_NeoPixel.c</FilePath>
             </File>
           </Files>
         </Group>

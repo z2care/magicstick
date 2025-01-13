@@ -55,8 +55,19 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(IE_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(IE_GPIO_Port, &GPIO_InitStruct);//初始化红外发射
+	
+	GPIO_InitTypeDef gpioinitstruct;
+  gpioinitstruct.Pin = GPIO_PIN_4;
+  gpioinitstruct.Pull = GPIO_NOPULL;//or GPIO_PULLDOWN
+  gpioinitstruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
 
+  gpioinitstruct.Mode = GPIO_MODE_IT_RISING;
+  HAL_GPIO_Init(GPIOA, &gpioinitstruct);//初始化按键
+
+  /* Enable and set Button EXTI Interrupt to the lowest priority */
+  HAL_NVIC_SetPriority((IRQn_Type)(EXTI4_15_IRQn), 0x0F, 0);//高优先级就是0,0
+  HAL_NVIC_EnableIRQ((IRQn_Type)(EXTI4_15_IRQn));
 }
 
 /* USER CODE BEGIN 2 */

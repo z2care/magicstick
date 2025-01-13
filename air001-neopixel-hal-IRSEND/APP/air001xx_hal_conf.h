@@ -15,6 +15,7 @@ extern "C" {
 #define HAL_DMA_MODULE_ENABLED
 #define HAL_SPI_MODULE_ENABLED
 #define HAL_I2C_MODULE_ENABLED
+//#define HAL_UART_MODULE_ENABLED
 
 #define HSE_VALUE            8000000U  
 #define HSE_STARTUP_TIMEOUT  100U      
@@ -35,8 +36,7 @@ extern "C" {
 #include "air001xx_hal_dma_ex.h"
 #include "air001xx_hal_spi.h"
 #include "air001xx_hal_spi_ex.h"
-#include "air001xx_hal_i2c.h"
-#include "air001xx_hal_i2c_ex.h"
+#include "air001xx_hal_uart.h"
 
 #define assert_param(expr) ((void)0U)
 
