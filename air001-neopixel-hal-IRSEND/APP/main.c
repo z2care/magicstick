@@ -118,18 +118,18 @@ int main(void)
 	adafruit_neopixel.init(WS2812_LINK_COUNT, NEO_GRB + NEO_KHZ800);
 	adafruit_neopixel.begin();
 	adafruit_neopixel.setBrightness(BRIGHTNESS);
-	//adafruit_neopixel.show();
+	adafruit_neopixel.show();
 	//rainbowCycle(10);
 
   while(1)
   {
 		if(keyPressed){
 			NEC_IE_code_message(user_code_16bit, data_code_8bit);
-			//colorWipe(0xFF0000, 50);//blue
+			colorWipe(0xFF0000, 50);//blue
 			delay_ms(100);//100ms
 			keyPressed = 0;
 		}
-		//rainbowCycle(10);
+		rainbowCycle(10);
 		delay_ms(100);//100ms
 	}
 	

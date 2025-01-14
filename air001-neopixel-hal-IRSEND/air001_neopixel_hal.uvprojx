@@ -428,6 +428,11 @@
               <FileType>1</FileType>
               <FilePath>.\APP\ws2812.c</FilePath>
             </File>
+            <File>
+              <FileName>air001xx_hal_msp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\air001xx_hal_msp.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
