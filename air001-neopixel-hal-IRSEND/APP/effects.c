@@ -110,7 +110,7 @@ void rainbowCycle(uint8_t wait)
 {
     uint16_t i, j;
 
-    for(j=0; j<256*3; j++)// 3 cycles of all colors on wheel
+    for(j=0; j<256; j++)// 3 cycles of all colors on wheel
     { 
         for(i=0; i< adafruit_neopixel.numPixels(); i++)
         {

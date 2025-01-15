@@ -76,7 +76,7 @@ HAL_StatusTypeDef status;
 
 void EXTI4_15_IRQHandler(void)
 {
-	printf("key GPIOA4 pressed\r\n");
+	//printf("key GPIOA4 pressed\r\n");
 	keyPressed = 1;
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);//按键中断
 }
@@ -125,12 +125,12 @@ int main(void)
   {
 		if(keyPressed){
 			NEC_IE_code_message(user_code_16bit, data_code_8bit);
-			colorWipe(0xFF0000, 50);//blue
-			delay_ms(100);//100ms
+			colorWipe(adafruit_neopixel.Color_rgb(BRIGHTNESS, 0, BRIGHTNESS), 50);//blue
+			delay_ms(1000);//100ms
 			keyPressed = 0;
 		}
 		rainbowCycle(10);
-		delay_ms(100);//100ms
+		//delay_ms(100);//100ms
 	}
 	
   /* USER CODE END 2 */

@@ -59,14 +59,13 @@ void MX_GPIO_Init(void)
 	
 	GPIO_InitTypeDef gpioinitstruct;
   gpioinitstruct.Pin = GPIO_PIN_4;
-  gpioinitstruct.Pull = GPIO_NOPULL;//or GPIO_PULLDOWN
+  gpioinitstruct.Pull = GPIO_PULLUP;//or GPIO_PULLDOWN
   gpioinitstruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
-
-  gpioinitstruct.Mode = GPIO_MODE_IT_RISING;
+  gpioinitstruct.Mode = GPIO_MODE_IT_FALLING;
   HAL_GPIO_Init(GPIOA, &gpioinitstruct);//初始化按键
 
   /* Enable and set Button EXTI Interrupt to the lowest priority */
-  HAL_NVIC_SetPriority((IRQn_Type)(EXTI4_15_IRQn), 0x0F, 0);//高优先级就是0,0
+  HAL_NVIC_SetPriority((IRQn_Type)(EXTI4_15_IRQn), 0, 0);//高优先级就是0,0
   HAL_NVIC_EnableIRQ((IRQn_Type)(EXTI4_15_IRQn));
 }
 
