@@ -1,7 +1,7 @@
 #include "effects.h"
 #include "air001xx_hal.h"
 
-extern uint8_t keyPressed = 0;
+extern uint8_t keyPressed;
 
 //return false then break
 bool delay_ms(int ms)

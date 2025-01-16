@@ -37,7 +37,7 @@ uint16_t code_16bit[10] = {0x7F80};
 /*  ¿ª  ÁÁ¶È¼Ó  ¸¨Öú¹âÔ´ ÁÁ¶È¼õ É«ÎÂ-  É«ÎÂ+  ·Ö¶Î*/
 uint8_t code_8bit[10] = {0x01,0x12,0x1A,0x1E,0x03,0x02 ,0x06};
 
-static uint8_t keyPressed = 0;
+uint8_t keyPressed = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -124,10 +124,16 @@ int main(void)
   while(1)
   {
 		if(keyPressed){
-			colorWipe(adafruit_neopixel.Color_rgb(BRIGHTNESS, 0, BRIGHTNESS), 10);//blue
+			keyPressed = 0;
+			resetPixels();
+			colorWipe(adafruit_neopixel.Color_rgb(255, 0, 0), 15);//blue
+			resetPixels();
+			colorWipe(adafruit_neopixel.Color_rgb(0, 255, 0), 15);//blue
+			resetPixels();
+			colorWipe(adafruit_neopixel.Color_rgb(0, 0, 255), 15);//blue
       NEC_IE_code_message(user_code_16bit, data_code_8bit);
       delay_ms(1000);
-			keyPressed = 0;
+			//keyPressed = 0;
 		}
 		rainbowCycle(10);
 	}
