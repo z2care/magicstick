@@ -1,12 +1,14 @@
 #include "effects.h"
 #include "air001xx_hal.h"
 
+extern uint8_t keyPressed = 0;
+
 //return false then break
 bool delay_ms(int ms)
 {
   uint32_t time1;
-  //if(is_mode_changed())
-    //return false;   //如果要切换模式，就不延时了。
+  if(keyPressed == 1)
+    return false;   //如果要切换模式，就不延时了。
   if(ms<10)
   {
     HAL_Delay(ms);
@@ -16,8 +18,8 @@ bool delay_ms(int ms)
     time1 = HAL_GetTick();
     while(HAL_GetTick() - time1 < ms)
     {
-      //if(is_mode_changed())
-        //return false;   
+      if(keyPressed == 1)
+        return false;//如果延时过程中触发按键，就不继续延时了。
     }
    }
   return true;

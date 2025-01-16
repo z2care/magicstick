@@ -124,13 +124,12 @@ int main(void)
   while(1)
   {
 		if(keyPressed){
-			NEC_IE_code_message(user_code_16bit, data_code_8bit);
-			colorWipe(adafruit_neopixel.Color_rgb(BRIGHTNESS, 0, BRIGHTNESS), 50);//blue
-			delay_ms(1000);//100ms
+			colorWipe(adafruit_neopixel.Color_rgb(BRIGHTNESS, 0, BRIGHTNESS), 10);//blue
+      NEC_IE_code_message(user_code_16bit, data_code_8bit);
+      delay_ms(1000);
 			keyPressed = 0;
 		}
 		rainbowCycle(10);
-		//delay_ms(100);//100ms
 	}
 	
   /* USER CODE END 2 */

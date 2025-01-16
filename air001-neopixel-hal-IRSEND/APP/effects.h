@@ -10,7 +10,7 @@
 #define WS2812_LINK_COUNT   32 
 
 #define COLOR_STEP 8
-#define BRIGHTNESS 100
+#define BRIGHTNESS 128
 
 //return false then break
 bool delay_ms(int ms);
