@@ -87,9 +87,9 @@ void EXTI4_15_IRQHandler(void)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint16_t	user_code_16bit = 0x1234;	//用户码
+	uint16_t	user_code_16bit = 0x2015;	//用户码
 	
-	uint8_t data_code_8bit = 0x66 ;		//数据码
+	uint8_t data_code_8bit = 0x01 ;		//数据码
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -126,11 +126,8 @@ int main(void)
 		if(keyPressed){
 			keyPressed = 0;
 			resetPixels();
-			colorWipe(adafruit_neopixel.Color_rgb(255, 0, 0), 15);//blue
-			resetPixels();
-			colorWipe(adafruit_neopixel.Color_rgb(0, 255, 0), 15);//blue
-			resetPixels();
-			colorWipe(adafruit_neopixel.Color_rgb(0, 0, 255), 15);//blue
+			//colorWipe(adafruit_neopixel.Color_rgb(128, 128, 128), 25);//128 white
+			colorWipe2(adafruit_neopixel.Color_rgb(128, 128, 128), 25);//128 white
       NEC_IE_code_message(user_code_16bit, data_code_8bit);
       delay_ms(1000);
 			//keyPressed = 0;

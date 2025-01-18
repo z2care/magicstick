@@ -50,6 +50,6 @@ void one_face_one_color_fixed();
 
 /* USER CODE END 0 */
 
-void make_data();
+void colorWipe2(uint32_t c, uint8_t wait);
 
 #endif
