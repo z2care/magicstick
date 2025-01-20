@@ -127,7 +127,7 @@ int main(void)
 			keyPressed = 0;
 			resetPixels();
 			//colorWipe(adafruit_neopixel.Color_rgb(128, 128, 128), 25);//128 white
-			colorWipe2(adafruit_neopixel.Color_rgb(128, 128, 128), 25);//128 white
+			colorWipe2(adafruit_neopixel.Color_rgb(128, 128, 128), 15);//128 white
       NEC_IE_code_message(user_code_16bit, data_code_8bit);
       delay_ms(1000);
 			//keyPressed = 0;

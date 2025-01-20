@@ -7,7 +7,7 @@
 /***********************************************
  * WS2812ÊýÁ¿
 ************************************************/
-#define WS2812_LINK_COUNT   32 
+#define WS2812_LINK_COUNT   25 
 
 #define COLOR_STEP 8
 #define BRIGHTNESS 128

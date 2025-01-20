@@ -289,49 +289,18 @@ void one_face_one_color_fixed()
 // Fill the dots one after the other with a color
 void colorWipe2(uint32_t c, uint8_t wait)
 {
-	uint32_t rgb_values[32] = {
-    0xFF0000,  // 16711680
-    0xFB0004,  // 16515076
-    0xF70008,  // 16298344
-    0xF3000C,  // 16081612
-    0xEF0010,  // 15864880
-    0xEB0014,  // 15648148
-    0xE70018,  // 15431416
-    0xE3001C,  // 15214684
-    0xDF0020,  // 14997952
-    0xDB0024,  // 14781220
-    0xD70028,  // 14564488
-    0xD3002C,  // 14347756
-    0xCF0030,  // 14131024
-    0xCB0034,  // 13914292
-    0xC70038,  // 13697560
-    0xC3003C,  // 13480828
-    0xBF0040,  // 13264096
-    0xBB0044,  // 13047364
-    0xB70048,  // 12830632
-    0xB3004C,  // 12613900
-    0xAF0050,  // 12397168
-    0xAB0054,  // 12180436
-    0xA70058,  // 11963704
-    0xA3005C,  // 11746972
-    0x9F0060,  // 11530240
-    0x9B0064,  // 11313508
-    0x970068,  // 11096776
-    0x93006C,  // 10880044
-    0x8F0070,  // 10663312
-    0x8B0074,  // 10446580
-    0x870078,  // 10229848
-    0x800080   // 8388736
-};
-
-    for(uint16_t i=0; i<adafruit_neopixel.numPixels(); i++)
+    for(uint16_t i=0; i<adafruit_neopixel.numPixels()-1; i++)
     {
-        adafruit_neopixel.setPixelColor(i, rgb_values[i]);
+        adafruit_neopixel.setPixelColor(i, adafruit_neopixel.Color_rgb(128, 128, 128));
+			  adafruit_neopixel.setPixelColor(i+1, adafruit_neopixel.Color_rgb(128, 128, 128));
         adafruit_neopixel.show();
         //HAL_Delay(wait);
         if(!delay_ms(wait))
 					break;
-				if(i != adafruit_neopixel.numPixels()-1)
-					adafruit_neopixel.setPixelColor(i, adafruit_neopixel.Color_rgb(0, 0, 0));
+
+				adafruit_neopixel.setPixelColor(i, adafruit_neopixel.Color_rgb(0, 0, 0));
+				adafruit_neopixel.setPixelColor(i+1, adafruit_neopixel.Color_rgb(0, 0, 0));
     }
+		adafruit_neopixel.setPixelColor(24, adafruit_neopixel.Color_rgb(128, 0, 0));
+		adafruit_neopixel.show();
 }
