@@ -45,12 +45,15 @@ int main(void)
 	{
 		if(ir_received == 1){
 			//flow and show 8 icon//show unisoc 10s
-			for(ic_idx = 0; ic_idx < 8; ic_idx++){
-				ws281xs_300line_flow();
+			for(ic_idx = 1; ic_idx < 7; ic_idx++){
+				ws281xs_300line_flowhead();
 				ws281x_256square_publish(ic_idx, icons[ic_idx], fgcolor_arr, bgcolor_arr);
+				ws281xs_300line_flowtail();
 				Delay_ms(500);
 			}
-			Delay_ms(100000);
+			ws281xs_300line_stable();
+			ws281x_256square_publish(7, icons[7], fgcolor_arr, bgcolor_arr);
+			Delay_ms(200000);
 			ir_received = 0;
 		}else{
 			//show read
@@ -59,5 +62,6 @@ int main(void)
 			ws281x_256square_publish(0, fu_arr, fgcolor_arr, bgcolor_arr);
 			Delay_ms(200);
 		}
+		//ws281xs_rainbowCycle(20);
 	}
 }

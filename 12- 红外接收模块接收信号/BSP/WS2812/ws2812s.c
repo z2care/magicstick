@@ -128,7 +128,7 @@ void ws281xs_colorWipe(uint32_t c, uint8_t wait) {
   for(uint16_t i=0; i<PIXEL_NUM2; i++) {
     ws281xs_setPixelColor(i, c);
     ws281xs_show();
-    delay_ms(wait);
+    Delay_ms(wait);
   }
 }
 
@@ -140,7 +140,7 @@ void ws281xs_rainbow(uint8_t wait) {
       ws281xs_setPixelColor(i, ws281xs_wheel((i+j) & 255));
     }
     ws281xs_show();
-    delay_ms(wait);
+    Delay_ms(wait);
   }
 }
 
@@ -153,7 +153,7 @@ void ws281xs_rainbowCycle(uint8_t wait) {
       ws281xs_setPixelColor(i,ws281xs_wheel(((i * 256 / PIXEL_NUM2) + j) & 255));
     }
     ws281xs_show();
-    delay_ms(wait);
+    Delay_ms(wait);
   }
 }
 
@@ -166,7 +166,7 @@ void ws281xs_theaterChase(uint32_t c, uint8_t wait) {
       }
       ws281xs_show();
 
-      delay_ms(wait);
+      Delay_ms(wait);
 
       for (uint16_t i=0; i < PIXEL_NUM2; i=i+3) {
         ws281xs_setPixelColor(i+q, 0);        //turn every third pixel off
@@ -184,7 +184,7 @@ void ws281xs_theaterChaseRainbow(uint8_t wait) {
       }
       ws281xs_show();
 
-      delay_ms(wait);
+      Delay_ms(wait);
 
       for (uint16_t i=0; i < PIXEL_NUM2; i=i+3) {
         ws281xs_setPixelColor(i+q, 0);        //turn every third pixel off
@@ -204,24 +204,81 @@ void ws281xs_300line_stable()
 
 void ws281xs_300line_flow()
 {
-
-	uint8_t j = 0;//<25
-	uint8_t i = 0;//<12
-	uint8_t direction = 0;
-	for(j = 0; j < 25; j++){
-		
-		for(i = 0; i < 12; i++){
-			direction = i%2;
-			if(direction == 0){
-				//color arr[i*25 + j];
-				ws281xs_setPixelColor(i*25 + j, ws281xs_color(0x30,0x30,0x30));
-			}else{
-				//color arr[i*25+25-1-j];
-				ws281xs_setPixelColor(i*25+25-1-j, ws281xs_color(0x30,0x30,0x30));
-			}
-		}
-		ws281xs_show();
-		Delay_ms(20);
+	int i1 = 0;
+	int i2 = 0;
+	int j = 0;
+	for(j = 0; j < 20; j++){
 		ws281xs_closeAll();
+		for(i1 = 0; i1 < 12; i1+=2){
+			ws281xs_setPixelColor((i1*25+j), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+1), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+2), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+3), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+4), 0X303030);
+		}
+		for(i2 = 1; i2 < 12; i2+=2){
+			ws281xs_setPixelColor((i2*25+25-1-j-4), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-3), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-2), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-1), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j), 0X303030);
+		}
+		Delay_ms(15);
+		ws281xs_show();
+		Delay_ms(15);
+	}
+}
+
+void ws281xs_300line_flowhead()
+{
+	int i1 = 0;
+	int i2 = 0;
+	int j = 0;
+	for(j = 0; j < 12; j++){
+		ws281xs_closeAll();
+		for(i1 = 0; i1 < 12; i1+=2){
+			ws281xs_setPixelColor((i1*25+j), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+1), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+2), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+3), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+4), 0X303030);
+		}
+		for(i2 = 1; i2 < 12; i2+=2){
+			ws281xs_setPixelColor((i2*25+25-1-j-4), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-3), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-2), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-1), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j), 0X303030);
+		}
+		Delay_ms(15);
+		ws281xs_show();
+		Delay_ms(15);
+	}
+}
+
+void ws281xs_300line_flowtail()
+{
+	int i1 = 0;
+	int i2 = 0;
+	int j = 0;
+	for(j = 12; j < 20; j++){
+		ws281xs_closeAll();
+		for(i1 = 0; i1 < 12; i1+=2){
+			ws281xs_setPixelColor((i1*25+j), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+1), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+2), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+3), 0X303030);
+			ws281xs_setPixelColor((i1*25+j+4), 0X303030);
+		}
+		for(i2 = 1; i2 < 12; i2+=2){
+			ws281xs_setPixelColor((i2*25+25-1-j-4), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-3), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-2), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j-1), 0X303030);
+			ws281xs_setPixelColor((i2*25+25-1-j), 0X303030);
+		}
+		Delay_ms(15);
+		ws281xs_show();
+		Delay_ms(15);
 	}
 }

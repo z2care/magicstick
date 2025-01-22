@@ -127,7 +127,7 @@ void ws281x_colorWipe(uint32_t c, uint8_t wait) {
   for(uint16_t i=0; i<PIXEL_NUM; i++) {
     ws281x_setPixelColor(i, c);
     ws281x_show();
-    delay_ms(wait);
+    Delay_ms(wait);
   }
 }
 
@@ -139,7 +139,7 @@ void ws281x_rainbow(uint8_t wait) {
       ws281x_setPixelColor(i, ws281x_wheel((i+j) & 255));
     }
     ws281x_show();
-    delay_ms(wait);
+    Delay_ms(wait);
   }
 }
 
@@ -152,7 +152,7 @@ void ws281x_rainbowCycle(uint8_t wait) {
       ws281x_setPixelColor(i,ws281x_wheel(((i * 256 / PIXEL_NUM) + j) & 255));
     }
     ws281x_show();
-    delay_ms(wait);
+    Delay_ms(wait);
   }
 }
 
@@ -165,7 +165,7 @@ void ws281x_theaterChase(uint32_t c, uint8_t wait) {
       }
       ws281x_show();
 
-      delay_ms(wait);
+      Delay_ms(wait);
 
       for (uint16_t i=0; i < PIXEL_NUM; i=i+3) {
         ws281x_setPixelColor(i+q, 0);        //turn every third pixel off
@@ -183,7 +183,7 @@ void ws281x_theaterChaseRainbow(uint8_t wait) {
       }
       ws281x_show();
 
-      delay_ms(wait);
+      Delay_ms(wait);
 
       for (uint16_t i=0; i < PIXEL_NUM; i=i+3) {
         ws281x_setPixelColor(i+q, 0);        //turn every third pixel off

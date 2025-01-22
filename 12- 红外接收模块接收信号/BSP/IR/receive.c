@@ -138,7 +138,7 @@ void Receiving_Infrared_Data(void) {
 		
 		if(Guide_Repeat_Code != 1) {						 // 如果判断结果不是引导码，则打印错误信息并结束函数
         //printf("err\r\n");
-			ir_received = 1;
+			//ir_received = 1;
         return;
     }
 

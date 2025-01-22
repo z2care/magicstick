@@ -30,6 +30,7 @@ void ws281xs_theaterChaseRainbow(uint8_t wait);
 
 void ws281xs_300line_stable(void);
 void ws281xs_300line_flow(void);
-
+void ws281xs_300line_flowhead();
+void ws281xs_300line_flowtail();
 #endif /* __WS2812S_H */
 
